@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <canvas
+      id="myCanvas"
+      width="1000px"
+      height="600px"
+      style="border: 1px solid #d3d3d3"
+    ></canvas>
+    <script>
+      //   let cricle = document.getElementById("myCanvas");
+      //   let cricleCX = cricle.getContext("2d");
+      //   cricleCX.beginPath();
+      //   cricleCX.arc(400, 300, 200, 0, 2 * Math.PI);
+      //   cricleCX.stroke();
+
+      //vẽ hình tròn bán kính ngẫu nhiên
+
+      //   function Cricle(x, y, radius) {
+      //     this.x = x;
+      //     this.y = y;
+      //     this.radius = radius;
+      //   }
+      //   function createCricle() {
+      //     let ctx = document.getElementById("myCanvas").getContext("2d");
+      //     let radius = Math.floor(Math.random() * 200);
+      //     let cricle = new Cricle(400, 300, radius);
+      //     ctx.beginPath();
+      //     ctx.arc(cricle.x, cricle.y, cricle.radius, 0, 2 * Math.PI);
+      //     ctx.fill();
+      //   }
+      //   createCricle();
+
+      // vẽ hình tròn bới màu ngẫu nhiên
+
+      //   function Cricle(x, y, radius) {
+      //     this.x = x;
+      //     this.y = y;
+      //     this.radius = radius;
+      //   }
+      //   function getRandomHex() {
+      //     return Math.floor(Math.random() * 255);
+      //   }
+      //   function getRandomColor() {
+      //     let red = getRandomHex();
+      //     let blue = getRandomHex();
+      //     let green = getRandomHex();
+      //     return "rgb(" + red + "," + blue + "," + green + ")";
+      //   }
+      //   function createCricle() {
+      //     let ctx = document.getElementById("myCanvas").getContext("2d");
+      //     let radius = Math.floor(Math.random() * 200);
+      //     let color = getRandomColor();
+      //     let cricle = new Cricle(400, 300, radius);
+      //     ctx.beginPath();
+      //     ctx.arc(cricle.x, cricle.y, cricle.radius, 0, 2 * Math.PI);
+      //     ctx.fillStyle = color;
+      //     ctx.fill();
+      //   }
+      //   createCricle();
+
+      // vẽ hình tròn vị trí ngẫu nhiên
+
+      //   function Cricle(x, y, radius) {
+      //     this.x = x;
+      //     this.y = y;
+      //     this.radius = radius;
+      //   }
+      //   function getRandomHex() {
+      //     return Math.floor(Math.random() * 255);
+      //   }
+      //   function getRandomColor() {
+      //     let red = getRandomHex();
+      //     let blue = getRandomHex();
+      //     let green = getRandomHex();
+      //     return "rgb(" + red + "," + blue + "," + green + ")";
+      //   }
+      //   function createCricle() {
+      //     let ctx = document.getElementById("myCanvas").getContext("2d");
+      //     let radius = Math.floor(Math.random() * 200);
+      //     let color = getRandomColor();
+      //     let x = Math.random() * innerWidth;
+      //     let y = Math.random() * innerHeight;
+      //     let cricle = new Cricle(x, y, radius);
+      //     ctx.beginPath();
+      //     ctx.arc(cricle.x, cricle.y, cricle.radius, 0, 2 * Math.PI);
+      //     ctx.fillStyle = color;
+      //     ctx.fill();
+      //   }
+      //   createCricle();
+      //   createCricle();
+
+      // vẽ nhiều hình tròn
+
+      function Cricle(x, y, radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+      }
+      function getRandomHex() {
+        return Math.floor(Math.random() * 255);
+      }
+      function getRandomColor() {
+        let red = getRandomHex();
+        let blue = getRandomHex();
+        let green = getRandomHex();
+        return "rgb(" + red + "," + blue + "," + green + ")";
+      }
+      function createCricle() {
+        let ctx = document.getElementById("myCanvas").getContext("2d");
+        let radius = Math.floor(Math.random() * 200);
+        let color = getRandomColor();
+        let x = Math.random() * innerWidth;
+        let y = Math.random() * innerHeight;
+        let cricle = new Cricle(x, y, radius);
+        ctx.beginPath();
+        ctx.arc(cricle.x, cricle.y, cricle.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = color;
+        ctx.fill();
+      }
+      function createMultipleCricle() {
+        for (let i = 0; i < 30; i++) {
+          createCricle();
+        }
+      }
+      createMultipleCricle();
+    </script>
+  </body>
+</html>
