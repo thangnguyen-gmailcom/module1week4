@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Battery {
+        constructor(energy) {
+          this.energy = energy;
+        }
+
+        getEnergy() {
+          return this.energy;
+        }
+
+        decreaseEnergy() {
+          if (this.energy > 0) {
+            this.energy--;
+          }
+        }
+      }
+
+      class FlashLamp {
+        constructor(battery) {
+          this.battery = battery;
+          //   this.status = status;
+        }
+
+        GetBatteryInfo() {
+          return this.battery.getEnergy();
+        }
+
+        Light() {
+          if (this.status) {
+            alert("lighting");
+          } else {
+            alert("Not lighting");
+          }
+        }
+
+        TurnOn() {
+          this.status = true;
+        }
+
+        TurnOff() {
+          this.status = false;
+        }
+      }
+
+      let battery = new Battery(10);
+      let flashlamp = new FlashLamp(battery);
+      document.write("Battery info:" + flashlamp.GetBatteryInfo() + "<br/>");
+      flashlamp.Light();
+
+      document.write("Turn on<br/>");
+      flashlamp.TurnOn();
+      flashlamp.Light();
+      document.write("Battery info:" + flashlamp.GetBatteryInfo() + "<br/>");
+
+      document.write("Turn off<br/>");
+      flashlamp.TurnOff();
+      flashlamp.Light();
+    </script>
+  </body>
+</html>
