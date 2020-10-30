@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Temperature(celcius) {
+        this.celcius = celcius;
+        if (celcius >= -273) {
+          this.getConvertFahrenheit = function () {
+            return celcius * 1.8 + 32;
+          };
+          this.getConvertKenvin = function () {
+            return celcius + 273.15;
+          };
+        } else {
+          alert("không hợp lệ");
+        }
+      }
+      let temperature = new Temperature(25);
+      let fahrenheit = temperature.getConvertFahrenheit();
+      let kenvin = temperature.getConvertKenvin();
+      document.write("độ f :" + fahrenheit + "<br>" + "độ k:" + kenvin);
+    </script>
+  </body>
+</html>
