@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Apple {
+        constructor() {
+          this.weight = 10;
+        }
+        // lay trong luong qua tao
+        getWeight() {
+          return this.weight;
+        }
+
+        // giam trong luong qua tao
+        decrease() {
+          if (this.weight > 0) this.weight--;
+        }
+        // khoi luong qua tao bang 0
+        isEmpty() {
+          return this.weight === 0;
+        }
+      }
+
+      class Human {
+        constructor(name, gender, weight) {
+          this.setName(name);
+          this.setGender(gender);
+          this.setWeight(weight);
+        }
+
+        // noi mot chuoi cac tu
+        say(string) {
+          console.log(this.name + " say: " + string);
+        }
+        //an tao
+        eatApple(apple) {
+          if (this.checkApple(apple)) return;
+          apple.decrease();
+          this.weight++;
+        }
+        //kiem tra khoi luong qua tao
+        checkApple(apple) {
+          return apple.isEmpty();
+        }
+        // tra ve can nang
+        getWeight() {
+          return this.weight;
+        }
+        setWeight(weight) {
+          this.weight = weight;
+        }
+        // tra ve ten
+        getName() {
+          return this.name;
+        }
+        setName(name) {
+          this.name = name;
+        }
+        // tra về giới tính
+        setGender(gender) {
+          this.gender = gender;
+        }
+        isMale() {
+          return this.gender;
+        }
+      }
+
+      let apple = new Apple(10);
+      let Adam = new Human("Adam", "male", 70);
+      let Eva = new Human("Eva", "female", 40);
+      Adam.say("xin chao Eva");
+      Eva.say("xin chao Adam");
+    </script>
+  </body>
+</html>
