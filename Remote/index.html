@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class TiVi {
+        constructor(remoteCode) {
+          this.tvProgram = 1;
+          this.volume = 20;
+          this.remoteCode = remoteCode;
+          this.isOn = false;
+        }
+        // trang thai tv bat tat
+        checkIsOn() {
+          if (this.isOn) {
+            console.log("tv is on");
+          } else {
+            console.log("tv is off");
+          }
+        }
+        switchOnOff() {
+          if (this.isOn) {
+            this.isOn = false;
+            console.log("turn off the tv");
+          } else {
+            this.isOn = true;
+            console.log("turn on the tv");
+          }
+        }
+        // chuyen kenh
+        switchProgramTV(number) {
+          if (this.isOn == true) {
+            number = Number(number);
+            this.tvProgram = number;
+          } else {
+            console.log("TV dang tat");
+          }
+        }
+        // dieu khien am luong
+        switchVolumeTV(number) {
+          if (this.isOn == true) {
+            number = Number(number);
+            this.volume += number;
+          } else {
+            console.log("tv dang tat");
+          }
+        }
+      }
+
+      class Remote {
+        constructor(remoteCode) {
+          this.remoteCode = remoteCode;
+        }
+
+        // điều khiển chuyển kênh
+        turnTvProgram(tv, number) {
+          if (this.remoteCode === tv.remoteCode) {
+            tv.switchProgramTV(number);
+          }
+        }
+        // điểu khiển âm lượng
+        turnTvVol(tv, number) {
+          if (this.remoteCode === tv.remoteCode) {
+            tv.switchVolumeTV(number);
+          }
+        }
+        // điều khiển bật tắt tv
+        turnOnOffTV(tv) {
+          if (this.remoteCode === tv.remoteCode) {
+            tv.switchOnOff();
+          }
+        }
+      }
+
+      let tvSamSung = new TiVi(1);
+      let remote = new Remote(1);
+      tvSamSung.switchOnOff();
+      tvSamSung.switchProgramTV(7);
+      remote.turnTvProgram(tvSamSung, 3);
+      remote.turnTvVol(tvSamSung, 2);
+      remote.turnOnOffTV(tvSamSung);
+    </script>
+  </body>
+</html>
