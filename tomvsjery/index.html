@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Rat {
+        constructor(name, weight, speed) {
+          this.name = name;
+          this.weight = weight;
+          this.speed = speed;
+          this.status = true;
+        }
+        say() {
+          if (this.status) {
+            console.log("chít chít");
+          } else {
+            console.log("the mouse have already dead !");
+          }
+        }
+      }
+
+      class Cat {
+        constructor(name, weight, speed) {
+          this.name = name;
+          this.weight = weight;
+          this.speed = speed;
+          this.status = true;
+          this.haveAMouse = false;
+        }
+        say() {
+          if (this.status) {
+            console.log("meo meo");
+          }
+        }
+        catchTheMouse(rat) {
+          if (rat.status) {
+            this.speed += 30;
+            if (this.haveAMouse) {
+              console.log(this.name + "is already have a mouse");
+            } else {
+              if (this.speed > rat.speed) {
+                console.log(this.name + " catched " + rat.name);
+                this.haveAMouse = true;
+              } else {
+                this.speed += 5;
+                console.log(rat.name + " escaped");
+              }
+            }
+          } else {
+            console.log("the mouse have already dead !");
+          }
+        }
+        eatMouse(rat) {
+          if ((rat.status = true)) {
+            this.weight += rat.weight;
+            this.haveAMouse = false;
+          }
+        }
+      }
+
+      let jerry = new Rat("jerry", 10, 10);
+      let tom = new Cat("tom", 30, 20);
+      jerry.say();
+      tom.say();
+      tom.catchTheMouse(jerry);
+      tom.eatMouse(jerry);
+    </script>
+  </body>
+</html>
